@@ -1,0 +1,8 @@
+package com.app.service;
+
+import com.app.entities.Items;
+
+public interface ItemService {
+
+	 public Items addItem(Items item);
+}

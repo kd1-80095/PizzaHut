@@ -1,0 +1,31 @@
+package com.app.controller;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/items")
+public class ItemController {
+
+    @Autowired
+    private ItemService itemService;
+
+    @PostMapping("/add")
+    public Item addItem(@RequestBody Item item) {
+        return itemService.addItem(item);
+    }
+
+    @DeleteMapping("/remove/{id}")
+    public void removeItem(@PathVariable Long id) {
+        itemService.removeItem(id);
+    }
+
+    @PutMapping("/edit/{id}")
+    public Item editItem(@PathVariable Long id, @RequestBody Item updatedItem) {
+        return itemService.editItem(id, updatedItem);
+    }
+
+    @GetMapping("/all")
+    public List<Item> getAllItems() {
+        return itemService.getAllItems();
+    }
+}
