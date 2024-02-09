@@ -21,7 +21,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "Cart")
+@Table(name = "cart")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -29,17 +29,22 @@ import lombok.ToString;
 @ToString//(exclude = "password") // toString excluding password
 public class Cart extends BaseEntity {
 	
-	 @OneToMany
-	 @JoinColumn(name ="item_id",nullable =false)
-	    private List<Items> item=new ArrayList<Items>();
-	
-	 @OneToOne
-	 @JoinColumn(name ="customer_id",nullable =false)
-	    private CustomerEntity customerId;
+//	 @OneToMany
+//	 @JoinColumn(name ="item_id",nullable =false)
+//	    private List<Items> item=new ArrayList<Items>();
+//	
+//	 @ManyToOne
+//	 @JoinColumn(name ="customer_id",nullable =false)
+//	    private CustomerEntity customerId;
 	 
 	@Column(name="quantity")
 	private int quantity;
+	 
+	@Column(name="total_amount")
+	private double totalAmount;
 	
+	@Column(name="unit_price")
+	private double unitPrice;
 	
 	
 }
